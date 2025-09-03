@@ -3,41 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Dashboard - QuickCure</title>
+    <title>Patient Dashboard - Quickcure</title>
     <link rel="stylesheet" href="patient.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="QuickCureLogo.png" alt="HealthCare Logo" class="logo-img">
-                <h1>QuickCure</h1>
+                <img src="QuickCureLogo.png" alt="Quickcure Logo" class="logo-img" />
+                <h1>Quickcure</h1>
             </div>
             <nav class="nav">
-                <a href="patient.html">Dashboard</a>
+                <a href="patient-profile.html">Profile</a>
                 <a href="patient-appointment.html">Book Appointment</a>
-                <a href="patient-profile.html">My Profile</a>
-                <a href="index.html" class="logout-btn" id="logoutBtnDesktop">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                <a href="#" id="logoutBtnDesktop" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
                 </a>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button id="mobileMenuBtn" class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="patient.html">Dashboard</a>
-            <a href="patient-appointment.html">Book Appointment</a>
-            <a href="patient-profile.html">My Profile</a>
-            <a href="index.html" class="logout-btn" id="logoutBtnMobile">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
+            <div id="mobileMenu" class="mobile-menu">
+                <a href="patient-profile.html">Profile</a>
+                <a href="patient-appointment.html">Book Appointment</a>
+                <a href="#" id="logoutBtnMobile" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="patient-dashboard">
         <div class="container">
             <!-- Welcome Section -->
@@ -84,47 +82,45 @@
                         <p>Book your next appointment with our healthcare professionals</p>
                     </div>
                     <div class="appointment-icon">
-                        <i class="fas fa-calendar-plus"></i>
+                        <i class="fas fa-plus-circle"></i>
                     </div>
                 </div>
-
-                <!-- Booking Flow Section with column layout -->
+                
                 <div class="booking-flow-section">
                     <h2>Select Your Preferences</h2>
                     
-                    <!-- Preferences Section -->
                     <div class="preferences-section">
-                        <label for="specialty">Choose Specialty</label>
+                        <label for="specialty">Choose Specialty:</label>
                         <select id="specialty">
                             <option value="">-- Choose Specialty --</option>
                         </select>
-
-                        <label for="city">Choose City</label>
+                        
+                        <label for="city">Choose City:</label>
                         <select id="city">
                             <option value="">-- Choose City --</option>
                         </select>
                     </div>
-
-                    <!-- Find Available Doctors Section -->
+                    
                     <div class="find-doctors-section">
-                        <button class="btn btn-primary" id="nextBtn">
-                            <i class="fas fa-search"></i> Find Available Doctors
+                        <button id="nextBtn" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Find Available Doctors
                         </button>
                     </div>
-                </div>
-
-                <div class="quick-info">
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Available 24/7</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Easy Booking Process</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-stethoscope"></i>
-                        <span>Expert Doctors</span>
+                    
+                    <div class="quick-info">
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Available 24/7</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Easy Booking Process</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span>Expert Doctors</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -137,7 +133,7 @@
                 </div>
                 
                 <div class="quick-access-grid">
-                    <div class="access-card" onclick="location.href='patient-appointment.html'">
+                    <div class="access-card" onclick="window.location.href='patient-appointment.html'">
                         <div class="access-icon">
                             <i class="fas fa-calendar-plus"></i>
                         </div>
@@ -148,34 +144,12 @@
                         </div>
                     </div>
                     
-                    <div class="access-card" onclick="location.href='patient-appointments.html'">
+                    <div class="access-card" onclick="window.location.href='patient-profile.html#appointments'">
                         <div class="access-icon">
-                            <i class="fas fa-calendar-check"></i>
+                            <i class="fas fa-calendar"></i>
                         </div>
                         <h3>My Appointments</h3>
                         <p>View all your scheduled appointments</p>
-                        <div class="access-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="access-card" onclick="location.href='patient-profile.html'">
-                        <div class="access-icon">
-                            <i class="fas fa-user-edit"></i>
-                        </div>
-                        <h3>My Profile</h3>
-                        <p>Update your personal information</p>
-                        <div class="access-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="access-card" onclick="location.href='patient-records.html'">
-                        <div class="access-icon">
-                            <i class="fas fa-file-medical-alt"></i>
-                        </div>
-                        <h3>Medical Records</h3>
-                        <p>Access your health history</p>
                         <div class="access-arrow">
                             <i class="fas fa-arrow-right"></i>
                         </div>
@@ -186,7 +160,7 @@
     </main>
 
     <!-- Notification -->
-    <div class="notification" id="notification"></div>
+    <div id="notification" class="notification"></div>
 
     <script src="auth.js"></script>
     <script src="patient.js"></script>
