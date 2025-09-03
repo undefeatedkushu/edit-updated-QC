@@ -362,3 +362,18 @@ body {
         padding: 10px 10px 10px 35px;
     }
 }
+
+/* Responsive adjustments for doctor fields */
+@media (max-width: 600px) {
+    .doctor-fields .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .doctor-fields {
+        padding: 15px;
+    }
+}
+
+
