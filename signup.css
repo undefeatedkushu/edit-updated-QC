@@ -362,6 +362,32 @@ body {
         padding: 10px 10px 10px 35px;
     }
 }
+/* Doctor-specific fields styling */
+.doctor-fields {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.doctor-fields .form-group label span {
+    font-weight: 700;
+}
+
+/* Enhance form transition when doctor fields appear */
+.doctor-fields {
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.doctor-fields.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    margin-bottom: 0;
+}
 
 /* Responsive adjustments for doctor fields */
 @media (max-width: 600px) {
@@ -375,5 +401,6 @@ body {
         padding: 15px;
     }
 }
+
 
 
