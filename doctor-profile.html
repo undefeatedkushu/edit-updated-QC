@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile - HealthConnect</title>
+    <link rel="stylesheet" href="doctor-profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="QuickCureLogo.png" alt="QuickCure Logo" class="logo-img">
+                <h1>QuickCure</h1>
+            </div>
+            <nav class="nav">
+                <a href="doctor.html">Dashboard</a>
+                <a href="#appointments">Appointments</a>
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="doctor.html">Dashboard</a>
+            <a href="#appointments">Appointments</a>
+            <a href="index.html">Logout</a>
+        </div>
+    </header>
+
+    <main class="doctor-profile">
+        <div class="container">
+            <!-- Profile Header -->
+            <section class="profile-header">
+                <h1><i class="fas fa-user-md"></i> Doctor Profile</h1>
+                <p>Manage your professional information</p>
+            </section>
+
+            <!-- Profile Details Section -->
+            <section class="profile-details-section" id="profile">
+                <div class="section-header">
+                    <h2><i class="fas fa-id-card"></i> Profile Details</h2>
+                    <button class="btn btn-primary" id="editProfileBtn">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="profile-info">
+                        <div class="info-row">
+                            <label>Name:</label>
+                            <span id="profileName">Dr. Rajesh Sharma</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Speciality:</label>
+                            <span id="profileSpeciality">Cardiology</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Years of Experience:</label>
+                            <span id="profileExperience">15 years</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Email:</label>
+                            <span id="profileEmail">rajesh.sharma@healthconnect.com</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Phone:</label>
+                            <span id="profilePhone">+91-9876543210</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Clinic Address:</label>
+                            <span id="profileAddress">123 Medical Street, Mumbai, Maharashtra</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Availability Section -->
+            <section class="availability-section" id="availability">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-plus"></i> Availability Management</h2>
+                    <button class="btn btn-primary" id="addAvailabilityBtn">
+                        <i class="fas fa-plus"></i> Add Availability
+                    </button>
+                </div>
+                <div class="availability-list" id="availabilityList">
+                    <!-- Availability items will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Appointment Schedules Section -->
+            <section class="appointments-section" id="appointments">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-check"></i> Appointment Schedules</h2>
+                    <div class="date-filter">
+                        <input type="date" id="appointmentDate" class="date-picker">
+                        <select id="appointmentStatus">
+                            <option value="all">All Status</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table id="appointmentsTable">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Patient Name</th>
+                                <th>Type</th>
+                                <th>Fee</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Appointments will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Minimized Earnings Analytics Section -->
+            <section class="earnings-section" id="earnings">
+                <div class="section-header">
+                    <h2><i class="fas fa-rupee-sign"></i> Quick Earnings</h2>
+                </div>
+                
+                <div class="earnings-stats">
+                    <div class="earnings-card today">
+                        <div class="earnings-info">
+                            <span class="label">Today</span>
+                            <span class="amount" id="todayEarnings">₹2,500</span>
+                        </div>
+                        <div class="consultations">
+                            <i class="fas fa-users"></i>
+                            <span id="todayConsultations">5</span>
+                        </div>
+                    </div>
+                    <div class="earnings-card weekly">
+                        <div class="earnings-info">
+                            <span class="label">This Week</span>
+                            <span class="amount" id="weeklyEarnings">₹15,500</span>
+                        </div>
+                        <div class="consultations">
+                            <i class="fas fa-users"></i>
+                            <span id="weeklyConsultations">31</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Profile Edit Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Profile</h3>
+                <button class="close-btn" id="closeProfileModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="editName">Name</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editSpeciality">Speciality</label>
+                            <select id="editSpeciality" required>
+                                <option value="">Select Speciality</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Neurology">Neurology</option>
+                                <option value="Orthopedics">Orthopedics</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="Dermatology">Dermatology</option>
+                                <option value="Psychiatry">Psychiatry</option>
+                                <option value="General Medicine">General Medicine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editExperience">Years of Experience</label>
+                            <input type="number" id="editExperience" min="1" max="50" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Phone</label>
+                        <input type="tel" id="editPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAddress">Clinic Address</label>
+                        <textarea id="editAddress" rows="3" required></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelProfileBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Availability Modal -->
+    <div class="modal" id="availabilityModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="availabilityModalTitle">Add Availability</h3>
+                <button class="close-btn" id="closeAvailabilityModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="availabilityForm">
+                    <input type="hidden" id="editAvailabilityId">
+                    <div class="form-group">
+                        <label for="availabilityDate">Date</label>
+                        <input type="date" id="availabilityDate" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startTime">Start Time</label>
+                            <input type="time" id="startTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">End Time</label>
+                            <input type="time" id="endTime" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="slotDuration">Slot Duration</label>
+                            <select id="slotDuration">
+                                <option value="15">15 minutes</option>
+                                <option value="30" selected>30 minutes</option>
+                                <option value="45">45 minutes</option>
+                                <option value="60">60 minutes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="consultationFee">Consultation Fee (₹)</label>
+                            <input type="number" id="consultationFee" min="100" required>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelAvailabilityBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="saveAvailabilityBtn">Add Availability</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointment Details Modal -->
+    <div class="modal" id="appointmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Appointment Details</h3>
+                <button class="close-btn" id="closeAppointmentModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="appointmentDetails">
+                    <!-- Appointment details will be loaded here -->
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelAppointmentBtn">Cancel Appointment</button>
+                    <button type="button" class="btn btn-primary" id="completeAppointmentBtn">Mark as Complete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="doctor-profile.js"></script>
+</body>
+</html>
