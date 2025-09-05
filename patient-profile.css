@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+    background: linear-gradient(#f5f7fa);
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
@@ -148,7 +148,7 @@ body {
 
 .profile-avatar i {
     font-size: 8rem;
-    color: #667EEA;
+    color: #48bb78;
 }
 
 .profile-info {
@@ -192,7 +192,7 @@ body {
 }
 
 .card-header {
-    background: #667EEA;
+    background: #48bb78;
     color: white;
     padding: 20px 25px;
     display: flex;
@@ -394,7 +394,7 @@ table {
 }
 
 thead {
-    background: #667EEA;
+    background: #48bb78;
     color: white;
 }
 
@@ -450,12 +450,12 @@ tbody tr:hover {
 }
 
 .btn-primary {
-    background: #48BB78;
+    background: #2D3748;
     color: white;
 }
 
 .btn-primary:hover {
-    background: #38a169;
+    background: #2F855A;
     transform: translateY(-2px);
 }
 
@@ -721,4 +721,5 @@ tbody tr:hover {
         padding: 20px 15px;
     }
 }
+
 
